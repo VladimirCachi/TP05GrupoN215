@@ -1,16 +1,16 @@
 package ar.edu.unju.fi.service;
 
 import java.util.List;
-
 import org.springframework.stereotype.Service;
-
 import ar.edu.unju.fi.dto.AlumnoDTO;
+import ar.edu.unju.fi.model.Materia;
 
 @Service
 public interface IAlumnoService {
-	public List<AlumnoDTO> getListaAlumnos();
-	public AlumnoDTO findAlumnoByLu(Long lu);
-	public void agregarUnAlumno(AlumnoDTO alumnoDTO);
-	public void actualizarAlumno(AlumnoDTO alumnoDTO);
-	public void eliminarUnAlumno(Long lu);
+    List<AlumnoDTO> getListaAlumnos();
+    AlumnoDTO findAlumnoByLu(Long lu);
+    void agregarUnAlumno(AlumnoDTO alumnoDTO);
+    void actualizarAlumno(AlumnoDTO alumnoDTO);
+    void eliminarUnAlumno(Long lu);
+    List<AlumnoDTO> findAlumnosByCarreraId(Long carreraId); // Nuevo método
 }

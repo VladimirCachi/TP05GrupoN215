@@ -12,13 +12,18 @@ import ar.edu.unju.fi.model.Materia;
 
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface MateriaMapDTO {
-	
+
 	@Mapping(source = "codigo", target = "codigo")
 	@Mapping(source = "nombre", target = "nombre")
 	@Mapping(source = "curso", target = "curso")
 	@Mapping(source = "cantidadHoras", target = "cantidadHoras")
 	@Mapping(source = "modalidad", target = "modalidad")
 	@Mapping(source = "estado", target = "estado")
+	
+	  @Mapping(source = "docente", target = "docente")
+	  
+	  @Mapping(source = "carrera", target = "carrera")
+	 
 	
 	
 	MateriaDTO toDto(Materia materia);

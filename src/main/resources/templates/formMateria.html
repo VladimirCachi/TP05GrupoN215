@@ -12,47 +12,75 @@
 <body>
 <div class="container">
 	<div class="row"><header data-th-replace="~{fragments/header::header}"></header> </div>
-	<div class="row mt-5">
-			<h2 th:text="${isEdit} ? 'Modificar Materia' : 'Formulario de Materia'"></h2>
-			<form class="row g-3" data-th-action="@{/materia/guardarMateria}" data-th-object="${materia}" method="post" >
-				
-				<div class="form-floating col-md-3">
-					<input type="text" class="form-control" id="nombre" name="nombre" data-th-field="*{nombre}" placeholder="name@example" required>
-					<label for="nombre" class="form-label">Nombre</label>
+	<div class="container my-5">
+		<div class="row justify-content-center">
+			<div class="col-12 col-md-10 col-lg-8">
+				<div class="card shadow"
+					style="background-color: rgba(255, 255, 255, 0.8);">
+					<div class="card-body">
+						<h2 th:text="${isEdit} ? 'Modificar Materia' : 'Formulario de Materia'"></h2>
+						<form class="row g-3" data-th-action="@{/materia/guardarMateria}" data-th-object="${materia}" method="post" >
+							
+							<div class="form-floating col-md-3">
+								<input type="text" class="form-control" id="nombre" name="nombre" data-th-field="*{nombre}" placeholder="name@example" th:classappend="${#fields.hasErrors('nombre')} ? 'isinvalid' : ''">
+								<label for="nombre" class="form-label">Nombre</label>
+								<p class="form-text text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></p>
+							</div>
+							<div class="form-floating col-md-3">
+								<input type="text" class="form-control" id="curso" name="curso" data-th-field="*{curso}" placeholder="name@example" th:classappend="${#fields.hasErrors('curso')} ? 'isinvalid' : ''">
+								<label for="curso" class="form-label">Curso</label>
+								<p class="form-text text-danger" th:if="${#fields.hasErrors('curso')}" th:errors="*{curso}"></p>
+							</div>
+							<div class="form-floating col-md-3">
+								<input type="number" class="form-control" id="duracion" name="duracion" data-th-field="*{cantidadHoras}" placeholder="name@example" th:classappend="${#fields.hasErrors('cantidadHoras')} ? 'isinvalid' : ''">
+								<label for="duracion" class="form-label">Duración (Horas)</label>
+								<p class="form-text text-danger" th:if="${#fields.hasErrors('cantidadHoras')}" th:errors="*{cantidadHoras}"></p>
+							</div>
+							<div class="form-floating col-md-3">
+								<select class="form-select" id="modalidad" data-th-field="*{modalidad}" required>
+											<option value="Seleccionar modalidad">Seleccionar modalidad</option>
+											<option value="Presencial">Presencial</option>
+											<option value="Virtual">Virtual</option>
+											<option value="Mixta">Mixta</option>
+								</select>
+								<label for="modalidad" class="form-label">Modalidad</label>
+							</div>
+							
+							<div class="form-floating col-md-3">
+								<select class="form-select" id="docente" data-th-field="*{docente.legajo}" required>
+											<option value="">Seleccionar docente</option>
+												<option data-th-each="d: ${docentes}" data-th-value="${d.legajo}" data-th-text="${d.nombre}+' '+${d.apellido}">
+												</option>		
+								</select>
+								<label for="docente" class="form-label">Docente</label>
+							</div>
+							
+							<div class="form-floating col-md-3">
+								<select class="form-select" id="carrera" data-th-field="*{carrera.id}" required>
+											<option value="" >Seleccionar carrera</option>
+											<option data-th-each="c: ${carreras}" data-th-value="${c.id}" data-th-text="${c.nombre}" data-th-if="${c.estado}"></option>
+											</select>
+								<label for="carrera" class="form-label">Carrera</label>
+							</div>
+							
+							<div>
+								<input type="hidden" class="form-control" id="codigo" name="codigo"data-th-field="*{codigo}" >
+							</div>
+							
+							<div>
+			                <input type="hidden" class="form-control" id="estado" name="estado" data-th-field="*{estado}">
+			            	</div>
+							
+							<div class="col-12 d-flex justify-content-center gap-2">
+								<input type="submit" class="btn btn-lg btn-success" th:value="${isEdit} ? 'Modificar' : 'Agregar'">
+								<a class="btn btn-lg btn-secondary" href="/materia/listadoMaterias">Regresar</a>
+							</div>
+						</form>
+					</div>
 				</div>
-				<div class="form-floating col-md-3">
-					<input type="text" class="form-control" id="curso" name="curso" data-th-field="*{curso}" placeholder="name@example" required>
-					<label for="curso" class="form-label">Curso</label>
-				</div>
-				<div class="form-floating col-md-3">
-					<input type="number" class="form-control" id="duracion" name="duracion" data-th-field="*{cantidadHoras}" placeholder="name@example" required>
-					<label for="duracion" class="form-label">Duración</label>
-				</div>
-				<div class="form-floating col-md-3">
-					<select class="form-select" id="modalidad" data-th-field="*{modalidad}">
-								<option value="Seleccionar modalidad">Seleccionar modalidad</option>
-								<option value="Presencial">Presencial</option>
-								<option value="Virtual">Virtual</option>
-								<option value="Mixta">Mixta</option>
-					</select>
-					<label for="modalidad" class="form-label">Modalidad</label>
-				</div>
-				
-				<div>
-					<input type="hidden" class="form-control" id="codigo" name="codigo"data-th-field="*{codigo}" >
-				</div>
-				
-				<div>
-                <input type="hidden" class="form-control" id="estado" name="estado" data-th-field="*{estado}">
-            	</div>
-				
-				<div class="col-12 d-flex justify-content-center gap-2">
-					<input type="submit" class="btn btn-lg btn-success" th:value="${isEdit} ? 'Modificar' : 'Agregar'">
-					<a class="btn btn-lg btn-secondary" href="/materia/listadoMaterias">Regresar</a>
-				</div>
-			</form>
+			</div>
 		</div>
-	
+</div>	
 	<div class="row"><footer data-th-replace="~{fragments/footer::footer}"></footer></div>
 </div>
 <script data-th-src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
