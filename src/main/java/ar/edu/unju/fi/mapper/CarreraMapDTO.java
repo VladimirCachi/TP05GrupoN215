@@ -14,17 +14,18 @@ import ar.edu.unju.fi.model.Carrera;
 public interface CarreraMapDTO {
 
 	@Mapping(source = "id", target = "id")
-	@Mapping(source = "codigo", target = "codigo")
-	@Mapping(source = "nombre", target = "nombre")
-	@Mapping(source = "duracion", target = "duracion")
-	@Mapping(source = "estado", target = "estado")
+    @Mapping(source = "codigo", target = "codigo")
+    @Mapping(source = "nombre", target = "nombre")
+    @Mapping(source = "duracion", target = "duracion")
+    @Mapping(source = "estado", target = "estado")
+    @Mapping(source = "alumnos", target = "alumnos")
+    @Mapping(source = "materias", target = "materias")
+    CarreraDTO toDto(Carrera carrera);
 
-	CarreraDTO toDto(Carrera carrera);
+    @InheritInverseConfiguration
+    Carrera toEntity(CarreraDTO carreraDTO);
 
-	@InheritInverseConfiguration
-	Carrera toEntity(CarreraDTO carreraDTO);
+    List<CarreraDTO> listCarreraToListCarreraDTO(List<Carrera> listadoCarrera);
 
-	List<CarreraDTO> listCarreraToListCarreraDTO(List<Carrera> listadoCarrera);
-
-	List<Carrera> listCarreraDTOToListCarrera(List<CarreraDTO> listadoCarreraDTO);
+    List<Carrera> listCarreraDTOToListCarrera(List<CarreraDTO> listadoCarreraDTO);
 }

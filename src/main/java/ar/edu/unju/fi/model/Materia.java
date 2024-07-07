@@ -1,6 +1,8 @@
 package ar.edu.unju.fi.model;
 
-import java.util.Set;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import io.micrometer.common.lang.NonNull;
 import jakarta.persistence.*;
@@ -41,13 +43,21 @@ public class Materia {
     private String nombre;
     
     @ManyToMany(mappedBy = "materias")
-    private Set<Alumno> alumnos;
+    private List<Alumno> alumnos;
     
-    @ManyToOne
+    @Autowired
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "carrera_id")
     private Carrera carrera;
     
-    @OneToOne
+    @Autowired
+	@OneToOne
     @JoinColumn(name = "docente_id")
     private Docente docente;
+    
+    @Override
+    public String toString() {
+        return this.codigo.toString();
+    }
+
 }

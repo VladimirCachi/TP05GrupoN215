@@ -3,21 +3,59 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" data-th-href="@{/css/footer.css}">
 <title>Document</title>
-<link rel="stylesheet" data-th-href="@{/webjars/bootstrap/css/bootstrap.min.css}">
-<link rel="stylesheet" type="text/css" data-th-href="@{/CSS/footer.css}">
-<body style="margin: 0; padding: 0;">
-    <footer class="footer-style" th:fragment="footer">
-    <div class="footer-info">
-        <p>© 2015-2024 | UNJu Virtual - Educación a Distancia</p>
-        <div class="footer-links">
-            <a href="http://www.unju.edu.ar" target="_blank">Visítanos: http://www.unju.edu.ar</a>
-            <a href="mailto:virtual@unju.edu.ar">Escríbenos: virtual@unju.edu.ar</a>
-            <a href="tel:0388154708223">Llámanos: 0388 - 154708223</a>
-        </div>
-            <p>©Trabajo Practico Grupal N°215: Cachi, Vladimir y Vedia Luciana</p>
-            <p>©Escuela de Minas "Dr. Horacio Carrillo" 2024</p>
-        </div>
-    </footer>
+</head>
+<body>
+	<footer class="bg-dark text-white p-4 mt-4">
+	    <div class="container">
+	        <div class="row">
+	            <div class="col-md-4">
+	                <h5>FACULTAD DE INGENIERÍA - UNJu</h5>
+	                <p>
+	                    <img th:src="@{/images/icons8-mapa-50.png}" alt="Ubicación" width="20" height="20"> Ítalo Palanca Nº 10<br>
+	                    <img th:src="@{/images/icons8-mundo-50.png}" alt="Ubicación" width="20" height="20"> San Salvador de Jujuy<br>
+	                    Jujuy - Argentina
+	                </p>
+	                <p>
+	                    <img th:src="@{/images/mail.svg}" alt="Email" width="20" height="20"> <a href="mailto:info@fi.unju.edu.ar" class="text-white">info@fi.unju.edu.ar</a>
+	                </p>
+	                <h6>Aviso Legal</h6>
+	                <ul class="list-unstyled">
+	                    <li><a href="https://www.fi.unju.edu.ar/terminos-y-condiciones" class="text-white">Términos y Condiciones</a></li>
+	                    <li><a href="https://www.fi.unju.edu.ar/condiciones-de-uso-correo-electronico" class="text-white">Condiciones de uso del Correo Electrónico</a></li>
+	                </ul>
+	            </div>
+	            <div class="col-md-4">
+	                <h5>Redes Sociales</h5>
+	                <ul class="list-unstyled">
+	                    <li><a href="https://www.facebook.com/fiunju/" class="text-white">Facebook</a></li>
+	                    <li><a href="https://www.youtube.com/channel/UCgS9XJlKKSYI1oJ4lIOo77A" class="text-white">YouTube</a></li>
+	                    <li><a href="https://www.linkedin.com/school/facultad-de-ingenieria-unju" class="text-white">LinkedIn</a></li>
+	                    <li><a href="https://www.instagram.com/fiunju/" class="text-white">Instagram</a></li>
+	                </ul>
+	            </div>
+	            <div class="col-md-4">
+	                <h5>Enlaces de Interés</h5>
+	                <ul class="list-unstyled">
+	                    <li><a href="https://www.fi.unju.edu.ar/servicios/telefonos.html" class="text-white">Teléfonos</a></li>
+	                    <li><a href="https://www.fi.unju.edu.ar/servicios/notas.html" class="text-white">Modelos de Notas</a></li>
+	                    <li><a href="https://alumnos.unju.edu.ar/unju/" class="text-white">SIU Guaraní</a></li>
+	                    <li><a href="http://campus.fi.unju.edu.ar/" class="text-white">Campus FI</a></li>
+	                    <li><a href="https://www.fi.unju.edu.ar/secretarias/sec-administrativa/protocolos-de-bioseguridad.html" class="text-white">Protocolos de Bioseguridad</a></li>
+	                    <li><a href="https://di3.fi.unju.edu.ar/" class="text-white">Doctorado en Ingeniería Industrial</a></li>
+	                    <li><a href="http://dcyta.fi.unju.edu.ar/" class="text-white">Doctorado en Alimentos</a></li>
+	                    <li><a href="http://www.codinoa.edu.ar/" class="text-white">CODINOA</a></li>
+	                    <li><a href="http://www.becas.unju.edu.ar/" class="text-white">Becas UNJu</a></li>
+	                    <li><a href="http://www.unju.edu.ar/sibunju/conssibunju.htm" class="text-white">Sistema de Bibliotecas de la UNJu</a></li>
+	                    <li><a href="http://www.biblioteca.mincyt.gob.ar/index.php" class="text-white">Biblioteca Electrónica C y T</a></li>
+	                </ul>
+	            </div>
+	        </div>
+	    </div>
+	    <div class="text-center mt-3">
+	        <p>© 2024 Grupo 215 Vladimir Franco Uriel Cachi</p>
+	    </div>
+	</footer>
 </body>
 </html>

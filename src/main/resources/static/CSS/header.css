@@ -1,63 +1,97 @@
 body {
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-}
-
-.header-style {
-    padding: 20px;
     background-color: #f8f9fa;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    color: #212529;
 }
 
-.header-style h1 {
-    color: #333;
+/* Estilos del encabezado */
+header {
+    background-color: #f8f9fa;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid #dee2e6;
+}
+
+header img {
+    max-width: 100%;
+    height: auto;
     margin-bottom: 10px;
 }
 
-.header-style .university-motto {
-    color: #555;
+header h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+header h2 {
+    font-size: 1.75em;
+    margin: 0;
+    color: #6c757d;
+}
+
+header p.university-motto {
     font-style: italic;
+    font-size: 1.2em;
+    color: #343a40;
+    margin-top: 10px;
 }
 
+/* Estilos de la barra de navegación */
 .navbar {
-    background-color: #007bff;
-    padding: 10px 0;
+    margin-top: 20px;
 }
 
-.navbar .container {
+.navbar .navbar-brand {
     display: flex;
-    justify-content: space-between;
     align-items: center;
 }
 
-.navbar-toggler {
+.navbar .navbar-brand img {
+    margin-right: 10px;
+}
+
+.navbar .nav-item {
+    margin: 0 5px;
+}
+
+.navbar .nav-link {
+    color: #ffffff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+    color: #ffc107;
+}
+
+.navbar .dropdown-menu {
+    background-color: #343a40;
     border: none;
-    background-color: transparent;
-    color: white;
-    font-size: 1.2em;
 }
 
-.navbar-nav {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
+.navbar .dropdown-menu .dropdown-item {
+    color: #ffffff;
+    transition: background-color 0.3s ease;
 }
 
-.navbar-nav .nav-item {
-    margin: 0 10px;
+.navbar .dropdown-menu .dropdown-item:hover {
+    background-color: #495057;
 }
 
-.navbar-nav .nav-link {
-    color: white;
-    text-decoration: none;
-    padding: 10px 15px;
-    display: block;
-}
+/* Media Queries */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
 
-.navbar-nav .nav-link:hover {
-    background-color: #0056b3;
-    border-radius: 5px;
+    header h2 {
+        font-size: 1.5em;
+    }
+
+    header p.university-motto {
+        font-size: 1em;
+    }
 }
