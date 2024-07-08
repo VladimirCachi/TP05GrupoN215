@@ -1,57 +1,56 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title th:text="${pageTitle}">Formulario Carreras</title>
-<link rel="stylesheet"
-	th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}">
-<link rel="stylesheet" th:href="@{/css/styles.css}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${pageTitle}">Formulario Carreras</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
+    <link href="/images/favicon.png" rel="shortcut icon" type="image/vnd.microsoft.icon">
 </head>
 <body>
-	<div th:replace="fragments/header :: header"></div>
-	<div class="container my-5">
-		<div class="row">
-			<div class="col-md-8 offset-md-2">
-				<div class="card shadow"
-					style="background-color: rgba(255, 255, 255, 0.8);">
-					<div class="card-header">
-						<h3 class="card-title mb-0">Formulario Carrera</h3>
-					</div>
-					<div class="card-body">
-						<form th:object="${nuevaCarrera}"
-							th:action="@{${nuevaCarrera.id == null} ? '/carrera/guardarCarrera' : '/carrera/modificarCarrera'}"
-							method="post">
-							<input type="hidden" th:field="*{id}" />
-							<div class="form-floating mb-3">
-								<input type="text" class="form-control" id="codigo"
-									th:field="*{codigo}" placeholder="Código"> <label
-									for="codigo">Código</label>
-							</div>
-							<div class="form-floating mb-3">
-								<input type="text" class="form-control" id="nombre"
-									th:field="*{nombre}" placeholder="Nombre Carrera"> <label
-									for="nombre">Nombre Carrera</label>
-							</div>
-							<div class="form-floating mb-3">
-								<input type="number" class="form-control" id="cantidad"
-									th:field="*{duracion}" placeholder="Cantidad Años"> <label
-									for="cantidad">Cantidad Años</label>
-							</div>
-							<input type="hidden" th:field="*{estado}" value="true" />
-							<div class="d-flex justify-content-between">
-								<a class="btn btn-secondary" href="/carrera/listaCarreras">Regresar</a>
-								<button type="submit" class="btn btn-primary">Guardar
-									Carrera</button>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<script th:src="@{/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js}"></script>
-	<div th:replace="fragments/footer :: footer"></div>
+<div class="container">
+    <div class="row"><header th:replace="fragments/header :: header"></header></div>
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10 col-lg-8">
+                <div class="card shadow" style="background-color: rgba(255, 255, 255, 0.8);">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h2>Formulario Carrera</h2>
+                        </div>
+                        <form th:object="${nuevaCarrera}"
+                              th:action="@{${nuevaCarrera.id == null} ? '/carrera/guardarCarrera' : '/carrera/modificarCarrera'}"
+                              method="post">
+                            <input type="hidden" th:field="*{id}" />
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="codigo"
+                                       th:field="*{codigo}" placeholder="Código">
+                                <label for="codigo">Código</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="nombre"
+                                       th:field="*{nombre}" placeholder="Nombre Carrera">
+                                <label for="nombre">Nombre Carrera</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="number" class="form-control" id="cantidad"
+                                       th:field="*{duracion}" placeholder="Cantidad Años">
+                                <label for="cantidad">Cantidad Años</label>
+                            </div>
+                            <input type="hidden" th:field="*{estado}" value="true" />
+                            <div class="d-flex justify-content-between">
+                                <a class="btn btn-secondary" href="/carrera/listaCarreras">Regresar</a>
+                                <button type="submit" class="btn btn-primary">Guardar Carrera</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row"><footer th:replace="fragments/footer :: footer"></footer></div>
+</div>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
 </body>
 </html>
